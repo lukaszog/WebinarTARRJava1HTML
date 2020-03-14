@@ -43,6 +43,10 @@
         <p id="type"></p>
         <p id="model"></p>
         <p id="color"></p>
+
+        <p id="carsData">
+
+        </p>
     </div>
 
 </div>
@@ -76,6 +80,33 @@
         document.getElementById("model").innerHTML = car.model;
         document.getElementById("color").innerHTML = car.color;
 
+        var cars = [
+            {
+                id: 1,
+                type: "QQ",
+                model: "AA",
+                color: "black"
+            },
+            {
+                id: 2,
+                type: "A+",
+                model: "CV",
+                color: "white"
+            }
+        ];
+        console.log(cars)
+        var data = "";
+        for (var i=0; i<cars.length; i++){
+            console.log(cars[i])
+
+            data += "ID: " + cars[i].id + "<br/>"
+            data += "Typ: " + cars[i].type + "<br/>"
+            data += "Model: " + cars[i].model + "<br/>"
+            data += "Kolor: " + cars[i].color + "<br/>"
+
+        }
+        console.log(data)
+        document.getElementById("carsData").innerHTML = data
     }
     jsBasic();
 
