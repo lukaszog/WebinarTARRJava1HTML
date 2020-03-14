@@ -11,13 +11,67 @@
                 console.log("KLIK")
                 console.log(this)
                 $(this).hide();
-            })
+            });
+
+            $("#changeStyle").click(function () {
+                $("#akapit").addClass("color");
+            });
+
+            $.getJSON('http://localhost:8080/api/users', function (data) {
+                console.log(data)
+                $.each(data,  function (index, value) {
+                    console.log(value)
+                    $("#userList").append('<li>' + value.name + '</li>')
+                })
+            });
+
+            $("#sendUser").click(function () {
+
+                var name = $("#name").val();
+                var lastname = $("#lastname").val();
+                var password = $("#password").val();
+                var email = $("#email").val();
+                var url = "http://localhost:8080/api/registration";
+
+                var user = {
+                    "name": name,
+                    "lastName": lastname,
+                    "password": password,
+                    "email": email
+                };
+
+                $.post(url, user).done(function (data) {
+                    console.log(data);
+                });
+
+                console.log(name)
+                console.log(lastname)
+                console.log(password)
+                console.log(user)
+            });
 
         });
     </script>
+    <style>
+        .color{
+            color: coral;
+            font-size: 20px;
+        }
+    </style>
+
 </head>
 <body>
+    <ul id="userList">
+
+    </ul>
     <p id="akapit">TO JEST AKAPIT</p>
+    <button id="changeStyle">ZMIEŃ STYLE</button>
+<!--    String name, String lastName, String email, String password-->
+    <p>Name: <input id="name" type="text" /></p>
+    <p>Last Name: <input id="lastname" type="text" /></p>
+    <p>Email: <input id="email" type="text" /></p>
+    <p>Password: <input id="password" type="password" /></p>
+    <button id="sendUser">Send</button>
 
 </body>
 </html>
