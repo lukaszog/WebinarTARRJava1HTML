@@ -47,6 +47,11 @@
         <p id="carsData">
 
         </p>
+
+        <select id="carsDataSelect" onchange="carsSelectChange()">
+
+        </select>
+
     </div>
 
 </div>
@@ -96,9 +101,11 @@
         ];
         console.log(cars)
         var data = "";
+        var dataSelect = "";
         for (var i=0; i<cars.length; i++){
             console.log(cars[i])
-
+            dataSelect += "<option value="+cars[i].id+">"
+                + cars[i].type + "</option>"
             data += "ID: " + cars[i].id + "<br/>"
             data += "Typ: " + cars[i].type + "<br/>"
             data += "Model: " + cars[i].model + "<br/>"
@@ -107,8 +114,16 @@
         }
         console.log(data)
         document.getElementById("carsData").innerHTML = data
+        document.getElementById("carsDataSelect").innerHTML = dataSelect
+    }
+    function carsSelectChange() {
+        console.log("JESTEM!")
+        var x = document.getElementById("carsDataSelect").value;
+        console.log(x);
     }
     jsBasic();
+
+
 
 </script>
 
