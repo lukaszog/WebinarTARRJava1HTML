@@ -3,8 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>WebinarTARRJava1</title>
+    <style>
+        body{
+            font-family: Arial;
+            font-size: 20px;
+        }
+        .container{
+            width: 1000px;
+            margin: auto;
+        }
+        .left{
+            float: left;
+            width: 150px;
+            background-color: #D8FF9E;
+            min-height: 500px;
+            padding: 10px 10px 10px 10px;
+        }
+        .right{
+            float: left;
+            background-color: coral;
+            width: 800px;
+            min-height: 500px;
+            padding: 10px 10px 10px 10px;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+
+
+    <div class="left">
+        lewo
+    </div>
+
+    <div class="right">
+        <p id="akapit">To jest tekst</p>
+        <button onclick='buttonClick()'>Tekst</button>
+        <h2>Auto</h2>
+        <p id="type"></p>
+        <p id="model"></p>
+        <p id="color"></p>
+    </div>
+
+</div>
+
+<script>
+    function buttonClick() {
+        document.getElementById("akapit").innerHTML = "Modyfikacja";
+        console.log("Wiadomosc");
+        console.log(document.getElementById("akapit").innerHTML);
+    }
+
+    function jsBasic() {
+
+        var x = 32;
+        console.log(x);
+        var arr = [1,2,3,4,5,6,7,8];
+
+        for(var i=0; i<arr.length; i++){
+            console.log(arr[i])
+        }
+
+        var car = {
+          type: "XX",
+          model: "ZZ",
+          color: "black"
+        };
+        console.log(car.type)
+        console.log(car.model)
+        console.log(car.color)
+        document.getElementById("type").innerHTML = car.type;
+        document.getElementById("model").innerHTML = car.model;
+        document.getElementById("color").innerHTML = car.color;
+
+    }
+    jsBasic();
+
+</script>
 
 </body>
 </html>
